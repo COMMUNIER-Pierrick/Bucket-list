@@ -5,9 +5,13 @@
 {% endblock %}
 
 {% block body %}
-    <h2>todo: la liste des souhaits</h2>
-
-    {# todo: afficher la liste des souhaits #}
+    <section>
+        {% for wish in wishs %}
+        <article>
+            <a href="{{ path('wish_detail', {'id':wish.id}) }}"></a>
+        </article>
+        {% endfor %}
+    </section>
 {% endblock %}
 
 
