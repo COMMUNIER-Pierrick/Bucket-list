@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    todo: afficher le nom du souhait | {{ parent() }}
+
+    {{ wish.title }} | {{ parent() }}
+
 {% endblock %}
 
 {% block body %}
-    <h2>todo: le titre du souhait</h2>
 
-    {# todo: afficher le détails du souhait #}
+    <h2>{{ wish.title }}</h2>
+    <div><p class="style">Auteur: </p>{{ wish.author }}</div><br>
+    <div><p class="style">Description: </p>{{ wish.description }}</div><br>
+    <div><p class="style">Date d'ajout: </p>{{ wish.dateCreated | format_datetime('full', 'short', locale='fr') }}</div>
+
 {% endblock %}
 
 
