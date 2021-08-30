@@ -26,15 +26,26 @@
                     <a href="{{ path('main_home') }}" title="Go back to homepage">Home</a>
                 </li>
                 <li>
-                    <a href="{{ path('main_about_us') }}" title="Go back to homepage">About us</a>
+                    <a href="{{ path('main_about_us') }}" title="About us">About us</a>
                 </li>
                 <li>
-                    <a href="{{ path('wish_list') }}" title="Go back to homepage">Liste des idées</a>
+                    <a href="{{ path('wish_list') }}" title="Liste des souhaits">Liste des souhaits</a>
+                </li>
+                <li>
+                    <a href="{{ path('wish_create') }}" title="Création d'un souhait">Création d'un souhait</a>
                 </li>
             </ul>
         </nav>
     </div>
 </header>
+{# read and display all flash messages #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
 <main>
     <div class="container">
         {% block body %}{% endblock %}

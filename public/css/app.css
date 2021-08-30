@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-family: 'Asul', sans-serif;
-    background-color: aliceblue;
+    background-color: #FFF1E6;
 }
 
 .container {
@@ -68,4 +68,31 @@ footer {
 
 .style{
     text-decoration: underline;
+}
+
+label {
+    display: block;
+}
+
+input,
+textarea,
+select{
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    width: 150px;
+}
+
+.flash{
+    max-width: 800px;
+    min-width: 800px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.flash-success{
+    background-color: palegreen;
 }
