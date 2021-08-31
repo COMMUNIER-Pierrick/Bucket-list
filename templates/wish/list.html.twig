@@ -6,7 +6,7 @@
 
 {% block body %}
     <section>
-        {% for wish in wishs %}
+        {% for wish in wishes %}
         <article>
             <a href="{{ path('wish_detail', {'id':wish.id}) }}" title="Voir se souhait en détail">{{ wish.title }} ({{ wish.category.name }})
             </a>

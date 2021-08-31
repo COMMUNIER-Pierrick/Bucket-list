@@ -19,13 +19,17 @@ class WishRepository extends ServiceEntityRepository
         parent::__construct($registry, Wish::class);
     }
 
-    public function findTheMostRecent(){
+    public function findPublishedWishesWithCategories(): ?array
+    {
         $queryBuilder = $this->createQueryBuilder('w');
+        $queryBuilder->join('w.category', 'c')
+            ->addSelect('c');
+        $queryBuilder->andWhere('w.isPublished = 1');
         $queryBuilder->addOrderBy('w.dateCreated', 'DESC');
         $query = $queryBuilder->getQuery();
 
-        $results = $query->getResult();
-        return $results;
+        $wishes = $query->getResult();
+        return $wishes;
     }
 
     // /**
