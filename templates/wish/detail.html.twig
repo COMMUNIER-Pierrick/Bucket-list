@@ -10,6 +10,7 @@
 
     <h2>{{ wish.title }}</h2>
     <div><p class="style">Auteur: </p>{{ wish.author }}</div><br>
+    <div><p class="style">Catégorie: </p>{{ wish.category.name }}</div><br>
     <div><p class="style">Description: </p>{{ wish.description }}</div><br>
     <div><p class="style">Date d'ajout: </p>{{ wish.dateCreated | format_datetime('full', 'short', locale='fr') }}</div>
 

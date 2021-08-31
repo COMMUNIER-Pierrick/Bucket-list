@@ -8,8 +8,7 @@
     <section>
         {% for wish in wishs %}
         <article>
-            <a href="{{ path('wish_detail', {'id':wish.id}) }}">
-                <p>{{ wish.title }}</p>
+            <a href="{{ path('wish_detail', {'id':wish.id}) }}" title="Voir se souhait en détail">{{ wish.title }} ({{ wish.category.name }})
             </a>
         </article>
         {% endfor %}

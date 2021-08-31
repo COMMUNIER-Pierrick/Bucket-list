@@ -30,6 +30,7 @@ class WishController extends AbstractController
     public function detail($id, WishRepository $wishRepository): Response
     {
         $wish = $wishRepository->find($id);
+
         return $this->render('wish/detail.html.twig', [
             'wish' => $wish
         ]);
