@@ -3,5 +3,11 @@
 {% block title %}{{ parent() }} | Home{% endblock %}
 
 {% block body %}
-    <h2>Hello {{ app.user.pseudo }} !</h2>
+    <div class="hello">
+    {% if app.user %}
+    <h2>Hello {{ app.user.pseudo }}!</h2>
+    {% else %}
+    <h2>Hello !</h2>
+    {% endif %}
+    </div>
 {% endblock %}

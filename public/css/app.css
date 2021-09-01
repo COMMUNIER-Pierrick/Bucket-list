@@ -96,3 +96,7 @@ select{
 .flash-success{
     background-color: palegreen;
 }
+
+.hello{
+    text-align: center;
+}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Censurator\Censurator;
 use App\Entity\Wish;
 use App\Form\WishType;
 use App\Repository\WishRepository;
@@ -41,18 +42,26 @@ class WishController extends AbstractController
      */
     public function create(
         Request $request,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        Censurator $censurator
     ): Response
     {
         $wish = new Wish();
-        $wish->setDateCreated(new \DateTime());
-        $wish->setIsPublished(true);
+
+        $currentUserUsername = $this->getUser()->getPseudo();
+        $wish->setAuthor($currentUserUsername);
 
         $wishForm = $this->createForm(WishType::class, $wish);
 
         $wishForm->handleRequest($request);
 
         if ($wishForm->isSubmitted() && $wishForm->isValid()){
+
+            $purifiedDescription = $censurator->purify($wish->getDescription());
+            $wish->setDescription($purifiedDescription);
+
+            $purifiedDescription = $censurator->purify($wish->getDescription());
+            $wish->setDescription($purifiedDescription);
 
             $entityManager->persist($wish);
             $entityManager->flush();
