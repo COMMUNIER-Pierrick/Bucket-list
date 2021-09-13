@@ -57,6 +57,8 @@ class WishController extends AbstractController
 
         if ($wishForm->isSubmitted() && $wishForm->isValid()){
 
+            $wish->setIsPublished(1);
+
             $purifiedDescription = $censurator->purify($wish->getDescription());
             $wish->setDescription($purifiedDescription);
 
